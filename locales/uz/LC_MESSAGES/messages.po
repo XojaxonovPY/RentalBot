@@ -1,0 +1,81 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-04-02 12:30+0300\n"
+"PO-Revision-Date: 2025-04-02 10:28+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "🛠 Rental services"
+msgstr "🛠 Ijara xizmatlari"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/main_handler.py:47
+msgid "🛒 Orders"
+msgstr "🛒 Buyurtmalar"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "📞 Call Center"
+msgstr "📞 Aloqa markazi"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "🇬🇧 🇺🇿 Language"
+msgstr "🇬🇧 🇺🇿 Til"
+
+#: bot/handlers/lang.py:43
+msgid "✅ Take photo"
+msgstr "✅ Rasm oling"
+
+#: bot/handlers/main_handler.py:26
+msgid "Admin"
+msgstr "Admin"
+
+#: bot/handlers/main_handler.py:40
+msgid "🔎Search"
+msgstr "🔎 Qidirish"
+
+#: bot/handlers/main_handler.py:43
+msgid "✅ Searching rents"
+msgstr "✅ Ijara buyumlarini qidirish"
+
+#: bot/handlers/main_handler.py:44
+msgid "✅ Main category"
+msgstr "✅ Asosiy bo‘lim"
+
+#: bot/handlers/main_products.py:23
+msgid "✅ Rent objects:"
+msgstr "✅ Ijara buyumlari:"
+
+#: bot/handlers/main_products.py:33
+msgid "✅ No products left!"
+msgstr "✅ Mahsulotlar qolmadi!"
+
+#: bot/handlers/main_products.py:34
+msgid "📆 Day"
+msgstr "📆 Kun"
+
+#: bot/handlers/main_products.py:34 bot/handlers/main_products.py:48
+msgid "🕰 Hour"
+msgstr "🕰 Soat"
+
+#: bot/handlers/main_products.py:34
+msgid "◀️ Main back"
+msgstr "◀️ Orqaga"
+
+#: bot/handlers/main_products.py:45
+msgid "✅ How many days:"
+msgstr "✅ Necha kun:"
+

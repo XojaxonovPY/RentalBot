@@ -1,0 +1,80 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-04-02 12:30+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "🛠 Rental services"
+msgstr ""
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/main_handler.py:47
+msgid "🛒 Orders"
+msgstr ""
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "📞 Call Center"
+msgstr ""
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+msgid "🇬🇧 🇺🇿 Language"
+msgstr ""
+
+#: bot/handlers/lang.py:43
+msgid "✅ Take photo"
+msgstr ""
+
+#: bot/handlers/main_handler.py:26
+msgid "Admin"
+msgstr ""
+
+#: bot/handlers/main_handler.py:40
+msgid "🔎Search"
+msgstr ""
+
+#: bot/handlers/main_handler.py:43
+msgid "✅ Searching rents"
+msgstr ""
+
+#: bot/handlers/main_handler.py:44
+msgid "✅ Main category"
+msgstr ""
+
+#: bot/handlers/main_products.py:23
+msgid "✅ Rent objects:"
+msgstr ""
+
+#: bot/handlers/main_products.py:33
+msgid "✅ No products left!"
+msgstr ""
+
+#: bot/handlers/main_products.py:34
+msgid "📆 Day"
+msgstr ""
+
+#: bot/handlers/main_products.py:34 bot/handlers/main_products.py:48
+msgid "🕰 Hour"
+msgstr ""
+
+#: bot/handlers/main_products.py:34
+msgid "◀️ Main back"
+msgstr ""
+
+#: bot/handlers/main_products.py:45
+msgid "✅ How many days:"
+msgstr ""
+
