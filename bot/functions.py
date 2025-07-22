@@ -1,10 +1,7 @@
 from db.model import User, Category, Product,Order
 
 
-async def save_user(**kwargs):
-    check = await User.get(User.user_id, kwargs.get('user_id'))
-    if not check:
-        await User.create(**kwargs)
+
 
 async def get_category():
     category:list[Category]=await Category.get_all()

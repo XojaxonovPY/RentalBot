@@ -40,9 +40,9 @@ class AbstractClass:
     async def get(cls,filter_, id_):
         query = select(cls).where(filter_ == id_)
         objects = await db.execute(query)
-        object_ = objects.all()
+        object_ = objects.first()
         if object_:
-            return [ i[0] for i in object_]
+            return object_[0]
         else:
             return []
 
@@ -65,12 +65,12 @@ class AbstractClass:
         return result
 
     @classmethod
-    async def gets(cls, filter_column, filter_value, *columns):
-        query = select(*columns).where(filter_column == filter_value)
+    async def gets(cls, filter_column, filter_value):
+        query = select(cls).where(filter_column == filter_value)
         result = await db.execute(query)
         rows = result.all()
         if not rows:
-            return 'Error'
+            return []
         return [row[0] for row in rows]
 
 
