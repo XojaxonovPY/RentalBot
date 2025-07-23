@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-02 12:30+0300\n"
+"POT-Creation-Date: 2025-07-23 13:16+0300\n"
 "PO-Revision-Date: 2025-04-02 10:28+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -18,64 +18,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:18
+#, fuzzy
+msgid "Choose language:"
+msgstr "🇬🇧 🇺🇿 Til"
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🛠 Rental services"
 msgstr "🛠 Ijara xizmatlari"
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
-#: bot/handlers/main_handler.py:47
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🛒 Orders"
 msgstr "🛒 Buyurtmalar"
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "📞 Call Center"
 msgstr "📞 Aloqa markazi"
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🇬🇧 🇺🇿 Language"
 msgstr "🇬🇧 🇺🇿 Til"
 
-#: bot/handlers/lang.py:43
-msgid "✅ Take photo"
-msgstr "✅ Rasm oling"
-
-#: bot/handlers/main_handler.py:26
+#: bot/handlers/lang.py:35
 msgid "Admin"
 msgstr "Admin"
 
-#: bot/handlers/main_handler.py:40
+#: bot/handlers/lang.py:37
+msgid "✅ Main menu:"
+msgstr "✅ Asosiy menyu:"
+
+#: bot/handlers/main_handler.py:38
 msgid "🔎Search"
 msgstr "🔎 Qidirish"
 
-#: bot/handlers/main_handler.py:43
-msgid "✅ Searching rents"
+#: bot/handlers/main_handler.py:41
+#, fuzzy
+msgid "✅ Searching rents:"
 msgstr "✅ Ijara buyumlarini qidirish"
 
-#: bot/handlers/main_handler.py:44
-msgid "✅ Main category"
-msgstr "✅ Asosiy bo‘lim"
+#: bot/handlers/main_handler.py:42
+#, fuzzy
+msgid "✅ Main category:"
+msgstr "✅ Asosiy bo‘lim:"
 
-#: bot/handlers/main_products.py:23
+#: bot/handlers/main_handler.py:54
+msgid "✅ Nothing has been rented yet."
+msgstr "✅ Hozircha hech narsa ijaraga olinmagan."
+
+#: bot/handlers/main_products.py:22
 msgid "✅ Rent objects:"
 msgstr "✅ Ijara buyumlari:"
 
-#: bot/handlers/main_products.py:33
-msgid "✅ No products left!"
-msgstr "✅ Mahsulotlar qolmadi!"
-
-#: bot/handlers/main_products.py:34
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
 msgid "📆 Day"
 msgstr "📆 Kun"
 
-#: bot/handlers/main_products.py:34 bot/handlers/main_products.py:48
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
 msgid "🕰 Hour"
 msgstr "🕰 Soat"
 
-#: bot/handlers/main_products.py:34
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
+#: bot/handlers/payments.py:65
 msgid "◀️ Main back"
+msgstr "◀️ Asosiy bolimga"
+
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
+#: bot/handlers/payments.py:65
+#, fuzzy
+msgid "◀️ Back"
 msgstr "◀️ Orqaga"
 
-#: bot/handlers/main_products.py:45
+#: bot/handlers/main_products.py:41
 msgid "✅ How many days:"
 msgstr "✅ Necha kun:"
+
+#: bot/handlers/main_products.py:49
+#, fuzzy
+msgid "✅ How many hours:"
+msgstr "✅ Necha kun:"
+
+#~ msgid "✅ Take photo"
+#~ msgstr "✅ Rasm oling"
+
+#~ msgid "✅ No products left!"
+#~ msgstr "✅ Mahsulotlar qolmadi!"
 

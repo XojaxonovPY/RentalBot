@@ -1,40 +1,46 @@
-
+from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
-from aiogram import Router
+from aiogram.types import Message, LabeledPrice, PreCheckoutQuery, CallbackQuery
+from aiogram.utils.i18n import gettext as _
+
 from bot.buttons.reply import reply_button_builder
-from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
+from db.model import Product, Order
 from utils.env_data import BotConfig
-from bot.functions import  check_count,order_save
-from bot.states import States
 
-
-payments=Router()
+payments = Router()
 PAYMENT_CLICK_TOKEN = BotConfig.PAYMENT_CLICK_TOKEN
 
 
-@payments.message(States.count)
-async def order_handler(message: Message, state: FSMContext):
-    quantity = message.text.strip()
+@payments.callback_query(F.data.startswith('day_') | F.data.startswith('hour_'))
+async def order_handler(callback: CallbackQuery, state: FSMContext):
+    time = callback.data.split('_')
     data = await state.get_data()
-    id_ = data.get('product_id')
-    name = data.get('name')
-    price = data.get('price')
-    total = data.get('total')
-    count = data.get('count')
-    prices=[
+    product: Product = data.get('product')
+    amount = 0
+    if time[0] == 'day':
+        amount = int(time[1]) * 24 * product.price * 100
+    elif time[0] == 'hour':
+        amount = int(time[1]) * product.price * 100
+
+    prices = [
         {
-            'id':id_,
-            'name':name,
-            'price': price
+            'id': product.id,
+            'name': product.name,
+            'price': product.price,
         }
     ]
-    amount = await check_count(quantity,price,total)
-    await state.update_data(price=amount)
+    await state.update_data(total_price=amount, time=f'{time[1]} {time[0]}')
     prices = [
-        LabeledPrice(label=name, amount=amount),
+        LabeledPrice(label=product.name, amount=amount),
     ]
-    await message.answer_invoice('Products', f"Jami {quantity} mahsulot sotib  qilindi",
-                                '1',"UZS",prices, PAYMENT_CLICK_TOKEN)
+    await callback.message.answer_invoice(
+        title="Products",
+        description=f"{time[1]} {time[0]} uchun {product.name} mahsulotiga buyurtma.",
+        payload="product_invoice",
+        provider_token=PAYMENT_CLICK_TOKEN,
+        currency="UZS",
+        prices=prices
+    )
 
 
 @payments.pre_checkout_query()
@@ -45,23 +51,19 @@ async def success_handler(pre_checkout_query: PreCheckoutQuery) -> None:
 @payments.message(lambda message: bool(message.successful_payment))
 async def confirm_handler(message: Message, state: FSMContext):
     user_id = message.chat.id
-    data=await state.get_data()
-    product_id = data.get('product_id')
-    product_name = data.get('name')
-    product_price = data.get('price')
-    product_count = data.get('count')
-    product_price = float(product_price)
-    product_count = int(product_count)
+
+    data = await state.get_data()
+    product = data.get('product')
     if message.successful_payment:
-        total_amount = message.successful_payment.total_amount//100
-        order_id = int(message.successful_payment.invoice_payload)
         order = {
-            'product_id': product_id,
-            'product_name': product_name,
-            'product_price': product_price,
-            'product_count': product_count,
+            'product_id': product.id,
+            'total_price': data.get('total_price'),
+            'time': data.get('time'),
             'user_id': user_id,
         }
-        await order_save(**order)
+        order = await Order.create(**order)
+        button = [_('◀️ Main back'),_('◀️ Back')]
+        markup = await reply_button_builder(button,(2,))
         await state.clear()
-        await message.answer(text=f"✅ To'lo'vingiz uchun raxmat 😊 \n{total_amount}\n{order_id}")
+        text = f"✅ To'lo'vingiz uchun raxmat😊\n{order.id}\n{order.total_price}"
+        await message.answer(text=text, reply_markup=markup)

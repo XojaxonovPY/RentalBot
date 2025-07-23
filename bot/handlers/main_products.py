@@ -1,12 +1,12 @@
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineQuery
 from aiogram.types import InlineQueryResultArticle, InputTextMessageContent
+from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineQuery
 from aiogram.utils.i18n import gettext as _
 from aiogram.utils.i18n import lazy_gettext as __
+
 from bot.buttons.inline import build_inline_buttons
 from bot.buttons.reply import reply_button_builder
-from bot.functions import searching_products
 from bot.states import States
 from db.model import Product
 
@@ -27,26 +27,26 @@ async def product_handler(callback: CallbackQuery, state: FSMContext):
     product_id = callback.data.split('_')[1]
     product: Product = await Product.get(Product.id, int(product_id))
     caption = f'Name-{product.name}\nPrice-{product.price}\nCount-{product.count}'
-    text = [_('📆 Day'), _('🕰 Hour'), _('◀️ Main back')]
+    await state.update_data(product=product)
+    text = [_('📆 Day'), _('🕰 Hour'), _('◀️ Main back'), _('◀️ Back')]
     markup = await reply_button_builder(text, (2,))
     await callback.message.answer_photo(photo=product.image, caption=caption, reply_markup=markup)
 
 
 @product.message(F.text == __('📆 Day'))
 async def day_handler(message: Message, state: FSMContext):
-    text = [f'{i} day' for i in range(1, 11)]
-    markup = await reply_button_builder(text, [2] * (len(text) // 2))
+    text = [InlineKeyboardButton(text=f'{i} day',callback_data=f'day_{i}') for i in range(1, 11)]
+    markup = await build_inline_buttons(text, [2] * (len(text) // 2))
     await state.set_state(States.count)
     await message.answer(text=_('✅ How many days:'), reply_markup=markup)
 
 
 @product.message(F.text == __('🕰 Hour'))
 async def day_handler(message: Message, state: FSMContext):
-    text = [InlineKeyboardButton(text=f'{i} hour' for i in range(1, 13))]
-
-    markup = await reply_button_builder(text, [3] * (len(text) // 2))
+    text = [InlineKeyboardButton(text=f'{i} hour',callback_data=f'hour_{i}') for i in range(1, 13)]
+    markup = await build_inline_buttons(text, [3] * (len(text) // 2))
     await state.set_state(States.count)
-    await message.answer(text='✅ How many hours:', reply_markup=markup)
+    await message.answer(text=_('✅ How many hours:'), reply_markup=markup)
 
 
 # ===============================================Searching========================================
@@ -70,9 +70,12 @@ async def inline_query(inline: InlineQuery):
 
 
 @product.message(F.via_bot)
-async def any_text(message: Message):
+async def any_text(message: Message,state:FSMContext):
     product_id = int(message.text)
     await message.delete()
-    product_name, product_price, product_count, image = await searching_products(product_id)
-    await message.answer_photo(photo=image, caption=f'Name:{product_name}\n'
-                                                    f'Price:{product_price}\nCount:{product_count}')
+    product:Product=await Product.get(Product.id,product_id)
+    caption = f'Name:{product.name}\nPrice:{product.price}\nCount:{product.count}'
+    await state.update_data(product=product)
+    text = [_('📆 Day'), _('🕰 Hour'), _('◀️ Main back'), _('◀️ Back')]
+    markup = await reply_button_builder(text, (2,))
+    await message.answer_photo(photo=product.image,caption=caption,reply_markup=markup)

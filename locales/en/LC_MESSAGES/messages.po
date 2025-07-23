@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-02 12:30+0300\n"
+"POT-Creation-Date: 2025-07-23 13:16+0300\n"
 "PO-Revision-Date: 2025-04-02 10:28+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,64 +18,89 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:18
+msgid "Choose language:"
+msgstr ""
+
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🛠 Rental services"
 msgstr ""
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
-#: bot/handlers/main_handler.py:47
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🛒 Orders"
 msgstr ""
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "📞 Call Center"
 msgstr ""
 
-#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:24
+#: bot/handlers/lang.py:33 bot/handlers/main_handler.py:23
 msgid "🇬🇧 🇺🇿 Language"
 msgstr ""
 
-#: bot/handlers/lang.py:43
-msgid "✅ Take photo"
-msgstr ""
-
-#: bot/handlers/main_handler.py:26
+#: bot/handlers/lang.py:35
 msgid "Admin"
 msgstr ""
 
-#: bot/handlers/main_handler.py:40
+#: bot/handlers/lang.py:37
+msgid "✅ Main menu:"
+msgstr ""
+
+#: bot/handlers/main_handler.py:38
 msgid "🔎Search"
 msgstr ""
 
-#: bot/handlers/main_handler.py:43
-msgid "✅ Searching rents"
+#: bot/handlers/main_handler.py:41
+msgid "✅ Searching rents:"
 msgstr ""
 
-#: bot/handlers/main_handler.py:44
-msgid "✅ Main category"
+#: bot/handlers/main_handler.py:42
+msgid "✅ Main category:"
 msgstr ""
 
-#: bot/handlers/main_products.py:23
+#: bot/handlers/main_handler.py:54
+msgid "✅ Nothing has been rented yet."
+msgstr ""
+
+#: bot/handlers/main_products.py:22
 msgid "✅ Rent objects:"
 msgstr ""
 
-#: bot/handlers/main_products.py:33
-msgid "✅ No products left!"
-msgstr ""
-
-#: bot/handlers/main_products.py:34
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
 msgid "📆 Day"
 msgstr ""
 
-#: bot/handlers/main_products.py:34 bot/handlers/main_products.py:48
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
 msgid "🕰 Hour"
 msgstr ""
 
-#: bot/handlers/main_products.py:34
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
+#: bot/handlers/payments.py:65
 msgid "◀️ Main back"
 msgstr ""
 
-#: bot/handlers/main_products.py:45
+#: bot/handlers/main_products.py:31 bot/handlers/main_products.py:79
+#: bot/handlers/payments.py:65
+msgid "◀️ Back"
+msgstr ""
+
+#: bot/handlers/main_products.py:41
 msgid "✅ How many days:"
 msgstr ""
+
+#: bot/handlers/main_products.py:49
+msgid "✅ How many hours:"
+msgstr ""
+
+#~ msgid "✅ Take photo"
+#~ msgstr ""
+
+#~ msgid "✅ Searching rents"
+#~ msgstr ""
+
+#~ msgid "✅ Main category"
+#~ msgstr ""
+
+#~ msgid "✅ No products left!"
+#~ msgstr ""
 

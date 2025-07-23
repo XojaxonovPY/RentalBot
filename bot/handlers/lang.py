@@ -7,7 +7,7 @@ from bot.buttons.reply import reply_button_builder
 from bot.functions import admin
 from bot.states import States
 
-lang=Router()
+lang = Router()
 
 
 @lang.message(F.text == __('🇬🇧 🇺🇿 Language'))
@@ -19,7 +19,7 @@ async def language_user(message: Message, state: FSMContext):
 
 
 @lang.message(States.language)
-async def language_handler(message: Message, state: FSMContext,i18n):
+async def language_handler(message: Message, state: FSMContext, i18n):
     map_lang = {
         '🇺🇿 Uzbek': 'uz',
         '🇬🇧 English': 'en'
@@ -37,14 +37,7 @@ async def language_handler(message: Message, state: FSMContext,i18n):
     await message.answer(_('✅ Main menu:'), reply_markup=markup)
 
 
-@lang.message(F.text==__('Admin'))
-async def admin_handler(message:Message,state:FSMContext):
-    await state.set_state(States.image)
-    await message.answer(text=_('✅ Take photo'))
-
-
-@lang.message(States.image,F.photo)
-async def image_handler(message:Message,state:FSMContext):
-    image_id=message.photo[-1].file_id
-    await message.answer(text=f'Image_id:{image_id}')
-    await state.clear()
+@lang.message(F.photo)
+async def send_id(message: Message):
+    file_id = message.photo[-1].file_id
+    await message.answer(text=f'Image_id:{file_id}')
