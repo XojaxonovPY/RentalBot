@@ -9,6 +9,7 @@ class User(CreatedModel):
     username: Mapped[str] = mapped_column(String, nullable=True)
     order = relationship('Order', back_populates='user', lazy='selectin')
 
+    @staticmethod
     async def save_user(**kwargs):
         check = await User.get(User.user_id, kwargs.get('user_id'))
         if not check:
@@ -28,9 +29,9 @@ class Category(CreatedModel):
 class Product(CreatedModel):
     name: Mapped[str] = mapped_column(String)
     price: Mapped[float] = mapped_column(Float)
-    image: Mapped[str] = mapped_column(Text,nullable=True)
+    image: Mapped[str] = mapped_column(Text, nullable=True)
     count: Mapped[int] = mapped_column(Integer, default=1)
-    link: Mapped[str] = mapped_column(Text,nullable=True)
+    link: Mapped[str] = mapped_column(Text, nullable=True)
     category_id: Mapped[int] = mapped_column(ForeignKey('categories.id', ondelete='CASCADE'))
     category = relationship('Category', back_populates='product', lazy='selectin')
     order = relationship('Order', back_populates='product', lazy='selectin')
@@ -49,9 +50,6 @@ class Order(CreatedModel):
 
     def __repr__(self):
         return f"{self.product_name},{self.product_id},{self.product_id}"
-
-
-
 
 
 metadata = Base.metadata
